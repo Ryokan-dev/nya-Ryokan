@@ -1,0 +1,323 @@
+/* ============================================================
+   Ryokan — 디자인 시스템 (a.png / b.png 레퍼런스 기반)
+   정갈한 전통 료칸 사이트: 따뜻한 종이색 배경 · 묵색 글자 · 朱印 포인트
+   ============================================================ */
+:root{
+  --paper:#f7f3ea;       /* 본문 배경 (따뜻한 화선지) */
+  --paper-2:#fffdf8;     /* 카드/표면 */
+  --paper-3:#efe9dc;     /* 옅은 면 분할 */
+  --ink:#2a241e;         /* 묵 (제목) */
+  --ink-2:#4a4339;       /* 본문 */
+  --ink-soft:#80776a;    /* 보조 */
+  --ink-faint:#a89e8f;   /* 흐린 */
+  --line:#e4ddcf;        /* 헤어라인 */
+  --line-2:#d2c9b6;      /* 강한 분할 */
+  --shu:#a4392b;         /* 朱 (포인트/링크/씰) */
+  --shu-deep:#7f291d;
+  --gold:#a8884a;        /* 금 (절제된 장식) */
+  --night:#15110b;       /* 진입 연출 야간 */
+  --wood:#c8924a;        /* 도어 호박빛 */
+  --maxw:1180px;
+  --ease:cubic-bezier(.4,.1,.2,1);
+  --serif:'Noto Serif KR',serif;
+  --sans:'Noto Sans KR',sans-serif;
+  --latin:'Cormorant Garamond',serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;background:var(--paper);color:var(--ink-2);
+  font-family:var(--sans);font-weight:400;line-height:1.85;
+  -webkit-font-smoothing:antialiased;letter-spacing:.01em;
+  overflow-x:hidden;
+}
+body.intro-lock{overflow:hidden;height:100vh;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+::selection{background:rgba(164,57,43,.16);}
+
+/* ── 공통 헬퍼 ── */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+.eyebrow{
+  font-family:var(--latin);font-size:14px;font-weight:600;
+  letter-spacing:.42em;text-transform:uppercase;color:var(--shu);
+  text-indent:.42em;margin:0 0 18px;text-align:center;
+}
+/* 좌우 가는 선이 있는 가운데 제목 (b.png) */
+.sec-head{display:flex;align-items:center;gap:26px;justify-content:center;margin:0 auto 16px;max-width:640px;}
+.sec-head::before,.sec-head::after{content:"";flex:1;height:1px;background:var(--line-2);}
+.sec-head h2{
+  font-family:var(--serif);font-weight:600;color:var(--ink);
+  font-size:30px;letter-spacing:.14em;margin:0;white-space:nowrap;
+}
+.sec-sub{text-align:center;color:var(--ink-soft);font-size:16px;margin:0 auto 56px;max-width:720px;text-wrap:pretty;}
+.section{padding:108px 0;}
+.section--alt{background:linear-gradient(180deg,#f3eee2,#f6f1e7);}
+
+/* 작은 씰(朱印) 마크 */
+.seal{
+  width:38px;height:38px;border-radius:6px;flex:none;
+  display:grid;place-items:center;color:#fff;
+  background:var(--shu);box-shadow:0 1px 0 rgba(0,0,0,.15) inset;
+  font-family:var(--serif);font-weight:700;font-size:19px;
+  transform:rotate(-2deg);
+}
+
+/* ============================================================
+   헤더 (a.png: 좌 메뉴 / 가운데 로고 / 우 메뉴)
+   ============================================================ */
+.hd{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  padding:18px 40px;transition:background .4s,box-shadow .4s,padding .4s;
+}
+.hd--solid{background:rgba(247,243,234,.94);backdrop-filter:blur(10px);
+  box-shadow:0 1px 0 var(--line);padding:12px 40px;}
+.hd__nav{display:flex;gap:30px;align-items:center;}
+.hd__nav--r{justify-content:flex-end;}
+.hd__nav a{
+  font-size:14.5px;font-weight:500;color:var(--ink-2);letter-spacing:.04em;
+  position:relative;padding:6px 0;white-space:nowrap;transition:color .2s;
+}
+.hd__nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;
+  background:var(--shu);transition:right .28s var(--ease);}
+.hd__nav a:hover{color:var(--shu);}
+.hd__nav a:hover::after{right:0;}
+.hd__nav .cta{color:#fff;background:var(--shu);padding:9px 20px;border-radius:3px;
+  letter-spacing:.06em;transition:background .2s;}
+.hd__nav .cta::after{display:none;}
+.hd__nav .cta:hover{background:var(--shu-deep);color:#fff;}
+/* 히어로 위에서는 흰 글자 */
+.hd:not(.hd--solid) .hd__nav a{color:rgba(255,250,240,.92);}
+.hd:not(.hd--solid) .hd__nav a:hover{color:#fff;}
+.hd:not(.hd--solid) .hd__nav .cta{background:rgba(164,57,43,.92);color:#fff;}
+.hd:not(.hd--solid) .logo__word,
+.hd:not(.hd--solid) .logo__sub{color:#fff;}
+.hd:not(.hd--solid) .logo__seal{box-shadow:0 0 0 1px rgba(255,255,255,.5);}
+
+/* 로고 */
+.logo{display:flex;align-items:center;gap:12px;}
+.logo__seal{
+  width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:var(--shu);color:#fdf6ec;font-family:var(--serif);font-weight:700;font-size:17px;
+  box-shadow:0 1px 3px rgba(0,0,0,.18);
+}
+.logo__txt{display:flex;flex-direction:column;line-height:1;}
+.logo__word{font-family:var(--latin);font-weight:600;font-size:27px;letter-spacing:.04em;color:var(--ink);}
+.logo__sub{font-family:var(--latin);font-size:10.5px;letter-spacing:.46em;color:var(--ink-soft);
+  text-transform:uppercase;margin-top:3px;text-indent:.46em;}
+
+/* ============================================================
+   히어로
+   ============================================================ */
+.hero{position:relative;height:100vh;min-height:620px;overflow:hidden;display:flex;align-items:flex-end;}
+.hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.hero__veil{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(10,7,4,.36) 0%,transparent 26%,transparent 50%,rgba(10,7,4,.66) 100%);}
+.hero__inner{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;
+  padding:0 40px 96px;color:#fdf7ec;}
+.hero__eyebrow{font-family:var(--latin);font-size:15px;font-weight:600;letter-spacing:.5em;
+  text-transform:uppercase;color:rgba(255,240,220,.85);margin:0 0 22px;text-indent:.5em;}
+.hero__title{font-family:var(--serif);font-weight:600;font-size:clamp(38px,6vw,72px);
+  line-height:1.22;letter-spacing:.04em;margin:0 0 22px;text-shadow:0 2px 24px rgba(0,0,0,.4);}
+.hero__sub{font-size:clamp(15px,1.6vw,19px);color:rgba(255,247,236,.9);max-width:560px;
+  font-weight:300;line-height:1.9;text-wrap:pretty;}
+.hero__scroll{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:3;
+  color:rgba(255,247,236,.8);font-family:var(--latin);font-size:12px;letter-spacing:.34em;
+  text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:9px;}
+.hero__scroll::after{content:"";width:1px;height:42px;background:linear-gradient(rgba(255,247,236,.8),transparent);
+  animation:scrolldrop 2.2s var(--ease) infinite;}
+@keyframes scrolldrop{0%{transform:scaleY(0);transform-origin:top;}45%{transform:scaleY(1);transform-origin:top;}
+  55%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+
+/* ============================================================
+   료칸안내 (about)
+   ============================================================ */
+.about__lead{max-width:760px;margin:0 auto 56px;text-align:center;font-size:18px;
+  line-height:2.05;color:var(--ink-2);text-wrap:pretty;}
+.about__lead .drop{font-family:var(--serif);color:var(--ink);}
+.figure{position:relative;border-radius:4px;overflow:hidden;box-shadow:0 24px 50px -28px rgba(40,30,15,.5);}
+.figure image-slot{width:100%;display:block;}
+.about__lead--solo{margin-bottom:0;}
+.figure__cap{position:absolute;left:0;bottom:0;padding:12px 20px;color:#fdf7ec;font-size:13px;
+  letter-spacing:.16em;background:linear-gradient(0deg,rgba(0,0,0,.5),transparent);width:100%;
+  font-family:var(--latin);text-transform:uppercase;}
+
+/* ============================================================
+   세 채의 료칸
+   ============================================================ */
+.houses{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+.house{background:var(--paper-2);border:1px solid var(--line);border-radius:5px;overflow:hidden;
+  display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s var(--ease);}
+.house:hover{transform:translateY(-5px);box-shadow:0 26px 46px -26px rgba(40,30,15,.45);}
+.house image-slot{width:100%;height:230px;display:block;}
+.house__body{padding:26px 26px 30px;display:flex;flex-direction:column;gap:10px;flex:1;}
+.house__kanji{font-family:var(--serif);font-size:13px;letter-spacing:.3em;color:var(--shu);font-weight:500;}
+.house__name{font-family:var(--serif);font-weight:600;font-size:23px;color:var(--ink);letter-spacing:.06em;margin:0;}
+.house__tag{font-size:13.5px;color:var(--gold);letter-spacing:.08em;font-weight:500;}
+.house__desc{font-size:14.5px;color:var(--ink-soft);line-height:1.85;margin:4px 0 0;text-wrap:pretty;}
+
+/* ============================================================
+   객실 / 온천 공통 갤러리
+   ============================================================ */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+.gcard{position:relative;display:flex;flex-direction:column;gap:14px;
+  background:var(--paper-2);border:1px solid var(--line);border-radius:5px;
+  padding:30px 26px 32px;overflow:hidden;box-shadow:0 18px 38px -30px rgba(40,30,15,.4);
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
+.gcard:hover{transform:translateY(-4px);box-shadow:0 24px 44px -28px rgba(40,30,15,.45);}
+.gcard::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:var(--shu);opacity:.85;}
+.gcard__num{font-family:var(--latin);font-size:13px;letter-spacing:.3em;color:var(--shu);font-weight:600;}
+.gcard h3{font-family:var(--serif);font-weight:600;font-size:20px;color:var(--ink);margin:0;letter-spacing:.05em;}
+.gcard p{margin:0;font-size:14.5px;color:var(--ink-soft);line-height:1.8;text-wrap:pretty;}
+.gcard__head{display:flex;flex-direction:column;gap:6px;}
+
+/* ============================================================
+   제철 요리 (계절 카드 · 사진 없이 타이포)
+   ============================================================ */
+.seasons{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.season{position:relative;background:var(--paper-2);border:1px solid var(--line);border-radius:5px;
+  padding:30px 24px 32px;overflow:hidden;}
+.season::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:var(--sc,var(--shu));opacity:.85;}
+.season__k{font-family:var(--serif);font-size:34px;font-weight:600;color:var(--sc,var(--shu));line-height:1;letter-spacing:.04em;}
+.season__name{font-family:var(--serif);font-size:16px;color:var(--ink);letter-spacing:.18em;margin:10px 0 18px;font-weight:500;}
+.season__line{font-size:13px;color:var(--ink-soft);line-height:1.7;margin:0 0 18px;text-wrap:pretty;}
+.season__dishes{list-style:none;margin:0;padding:16px 0 0;border-top:1px solid var(--line);
+  display:flex;flex-direction:column;gap:9px;}
+.season__dishes li{font-size:14px;color:var(--ink-2);display:flex;gap:9px;align-items:baseline;}
+.season__dishes li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--sc,var(--shu));flex:none;transform:translateY(-2px);}
+
+/* ============================================================
+   접객원 안내 (실루엣 프로필)
+   ============================================================ */
+.staff-group{margin-bottom:64px;}
+.staff-group:last-child{margin-bottom:0;}
+.staff-group__head{display:flex;align-items:center;gap:16px;margin-bottom:30px;}
+.staff-group__kanji{font-family:var(--serif);font-size:22px;color:var(--shu);font-weight:600;letter-spacing:.16em;white-space:nowrap;}
+.staff-group__name{font-family:var(--serif);font-size:17px;color:var(--ink);letter-spacing:.12em;font-weight:500;white-space:nowrap;}
+.staff-group__line{flex:1;height:1px;background:var(--line);}
+.staff{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+.scard{background:var(--paper-2);border:1px solid var(--line);border-radius:5px;overflow:hidden;
+  display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
+.scard:hover{transform:translateY(-4px);box-shadow:0 22px 42px -26px rgba(40,30,15,.45);}
+/* 윤곽선만 있는 빈 프로필 */
+.scard__photo{position:relative;height:300px;background:
+  radial-gradient(120% 90% at 50% 22%, #f0ebe0, #e6dfd0);overflow:hidden;}
+.scard__img{width:100%;height:100%;object-fit:cover;object-position:50% 14%;display:block;}
+.silhouette{width:120px;height:150px;opacity:.5;}
+.silhouette path,.silhouette circle{fill:none;stroke:var(--ink-faint);stroke-width:3;}
+.scard__body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:8px;flex:1;}
+.scard__role{font-family:var(--latin);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--shu);font-weight:600;}
+.scard__name{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+.scard__name b{font-family:var(--serif);font-weight:600;font-size:21px;color:var(--ink);letter-spacing:.05em;white-space:nowrap;}
+.scard__name span{font-family:var(--serif);font-size:13px;color:var(--ink-soft);letter-spacing:.14em;white-space:nowrap;}
+.scard__desc{font-size:13.5px;color:var(--ink-soft);line-height:1.8;margin:2px 0 0;text-wrap:pretty;}
+.scard__quote{margin:14px 0 0;padding:14px 0 0;border-top:1px solid var(--line);
+  font-family:var(--serif);font-size:14px;font-style:italic;color:var(--ink-2);line-height:1.7;position:relative;}
+.scard__quote::before{content:"\201C";color:var(--shu);font-family:var(--serif);font-size:30px;
+  line-height:0;position:relative;top:8px;margin-right:4px;opacity:.5;}
+
+/* ============================================================
+   오시는 길
+   ============================================================ */
+.access{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.access--solo{grid-template-columns:1fr;max-width:760px;}
+.access__map{height:340px;border-radius:5px;overflow:hidden;box-shadow:0 20px 44px -26px rgba(40,30,15,.5);}
+.access__map image-slot{width:100%;height:100%;}
+.access h3{font-family:var(--serif);font-weight:600;font-size:24px;color:var(--ink);margin:0 0 8px;letter-spacing:.06em;}
+.access__rows{list-style:none;margin:24px 0 0;padding:0;display:flex;flex-direction:column;}
+.access__rows li{display:grid;grid-template-columns:96px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline;}
+.access__rows .k{font-family:var(--latin);font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--shu);font-weight:600;}
+.access__rows .v{font-size:15px;color:var(--ink-2);}
+.access__links{display:flex;gap:24px;margin-top:26px;flex-wrap:wrap;}
+.access__links a{font-size:14px;color:var(--ink-soft);border-bottom:1px solid var(--line-2);padding-bottom:3px;transition:.2s;}
+.access__links a:hover{color:var(--shu);border-color:var(--shu);}
+
+/* ============================================================
+   푸터
+   ============================================================ */
+.ft{background:#221d16;color:#cbbfa9;padding:72px 0 36px;}
+.ft__top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.08);}
+.ft__brand .logo__word{color:#f5ecdb;}
+.ft__brand .logo__sub{color:#9a8e78;}
+.ft__brand p{margin:20px 0 0;font-size:14px;color:#9a8e78;line-height:1.9;max-width:320px;}
+.ft__col h4{font-family:var(--latin);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#b8a878;margin:0 0 18px;font-weight:600;}
+.ft__col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;}
+.ft__col a{font-size:14px;color:#cbbfa9;transition:color .2s;}
+.ft__col a:hover{color:#fff;}
+.ft__bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;gap:16px;flex-wrap:wrap;}
+.ft__bottom small{font-family:var(--latin);font-size:12.5px;letter-spacing:.12em;color:#8a7f6b;}
+.ft__replay{font-size:13px;color:#b8a878;border:1px solid rgba(255,255,255,.16);border-radius:3px;
+  padding:8px 16px;letter-spacing:.06em;transition:.2s;cursor:pointer;background:none;font-family:var(--sans);}
+.ft__replay:hover{background:rgba(255,255,255,.08);color:#fff;}
+
+/* ============================================================
+   세 료칸 — 탭 + 패널 (각 패널: 소개·객실·온천·접객원)
+   ============================================================ */
+.rk-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:8px 0 14px;}
+.rk-tab{position:relative;text-align:left;cursor:pointer;font-family:var(--sans);
+  background:var(--paper-2);border:1px solid var(--line);border-radius:5px;
+  padding:20px 22px;display:flex;flex-direction:column;gap:5px;
+  transition:border-color .25s,box-shadow .25s,transform .25s,background .25s;}
+.rk-tab:hover{transform:translateY(-3px);box-shadow:0 16px 34px -22px rgba(40,30,15,.5);border-color:var(--line-2);}
+.rk-tab__kanji{font-family:var(--serif);font-size:13px;letter-spacing:.3em;color:var(--shu);font-weight:500;}
+.rk-tab__name{font-family:var(--serif);font-size:22px;color:var(--ink);font-weight:600;letter-spacing:.05em;}
+.rk-tab__tag{font-size:12.5px;color:var(--gold);letter-spacing:.06em;}
+.rk-tab.is-active{background:var(--ink);border-color:var(--ink);box-shadow:0 18px 40px -22px rgba(40,30,15,.7);}
+.rk-tab.is-active .rk-tab__kanji{color:#e6b98c;}
+.rk-tab.is-active .rk-tab__name{color:#fdf7ec;}
+.rk-tab.is-active .rk-tab__tag{color:#b9a98a;}
+.rk-tab.is-active::after{content:"";position:absolute;left:50%;bottom:-9px;width:16px;height:16px;
+  background:var(--ink);transform:translateX(-50%) rotate(45deg);}
+
+.rk-panels{margin-top:42px;}
+.rk-panel{display:none;}
+.rk-panel.is-active{display:block;animation:rkFade .5s var(--ease);}
+@keyframes rkFade{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+
+.rk-hero{position:relative;height:400px;border-radius:6px;overflow:hidden;
+  box-shadow:0 26px 54px -28px rgba(40,30,15,.55);}
+.rk-hero image-slot{width:100%;height:100%;display:block;}
+.rk-hero__img{width:100%;height:100%;object-fit:cover;object-position:50% 34%;display:block;}
+.rk-hero__cap{position:absolute;left:0;bottom:0;width:100%;padding:34px 38px;color:#fdf7ec;
+  background:linear-gradient(0deg,rgba(10,7,3,.8),rgba(10,7,3,.15) 60%,transparent);}
+.rk-hero__kanji{font-family:var(--serif);font-size:15px;letter-spacing:.3em;color:#f0c89a;font-weight:500;}
+.rk-hero__name{font-family:var(--serif);font-size:34px;font-weight:600;letter-spacing:.06em;margin:6px 0 4px;}
+.rk-hero__tag{font-size:14px;letter-spacing:.1em;color:rgba(255,240,220,.85);}
+.rk-intro{max-width:780px;margin:30px auto 8px;text-align:center;font-size:16.5px;line-height:2;color:var(--ink-2);text-wrap:pretty;}
+
+.rk-sub{display:flex;align-items:center;gap:16px;margin:56px 0 28px;}
+.rk-sub::before{content:"";width:18px;height:18px;background:var(--shu);border-radius:4px;transform:rotate(-3deg);flex:none;}
+.rk-sub span{font-family:var(--serif);font-size:23px;font-weight:600;color:var(--ink);letter-spacing:.1em;white-space:nowrap;}
+.rk-sub::after{content:"";flex:1;height:1px;background:var(--line-2);}
+
+.rk-onsen{background:var(--paper-2);border:1px solid var(--line);border-left:4px solid var(--shu);
+  border-radius:5px;padding:32px 38px;box-shadow:0 18px 38px -30px rgba(40,30,15,.4);}
+.rk-onsen image-slot{width:100%;height:330px;border-radius:5px;overflow:hidden;box-shadow:0 18px 38px -24px rgba(40,30,15,.5);}
+.rk-onsen__txt h3{font-family:var(--serif);font-weight:600;font-size:24px;color:var(--ink);margin:0 0 12px;letter-spacing:.05em;}
+.rk-onsen__txt p{margin:0;font-size:15px;color:var(--ink-soft);line-height:1.9;text-wrap:pretty;}
+@media (max-width:980px){ .rk-onsen{grid-template-columns:1fr;} .rk-tab__name{font-size:19px;} }
+@media (max-width:680px){ .rk-tabs{grid-template-columns:1fr;} .rk-hero{height:300px;} .rk-tab.is-active::after{display:none;} }
+
+/* ── 스크롤 등장 ── */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+.reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;}}
+
+/* ── 반응형 ── */
+@media (max-width:980px){
+  .houses,.gallery,.staff,.seasons{grid-template-columns:repeat(2,1fr);}
+  .seasons{gap:18px;}
+  .access{grid-template-columns:1fr;}
+  .hd__nav{gap:18px;}
+  .hd__nav a{font-size:13px;}
+}
+@media (max-width:680px){
+  .wrap{padding:0 22px;}
+  .hd{grid-template-columns:auto 1fr;padding:14px 20px;}
+  .hd__nav--l{display:none;}
+  .hd__nav--r{gap:14px;}
+  .houses,.gallery,.staff,.seasons{grid-template-columns:1fr;}
+  .section{padding:74px 0;}
+  .ft__top{grid-template-columns:1fr;gap:30px;}
+}
