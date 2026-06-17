@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ryokan · 타마의 세 료칸</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/ryokan.css">
+<link rel="stylesheet" href="assets/ryokan-intro.css">
+</head>
+<body class="intro-lock">
+
+<!-- ░░░░░░░░░░ 진입 연출 ░░░░░░░░░░ -->
+<div class="intro" id="intro">
+  <button class="intro__skip" id="introSkip">건너뛰기 ✕</button>
+
+  <!-- stage 1: 전경 -->
+  <div class="intro__wide" id="introWide">
+    <img src="assets/entrance.png" alt="료칸 전경">
+    <div class="intro__wideveil"></div>
+  </div>
+  <div class="intro__brand">
+    <div class="intro__seal">宿</div>
+    <p class="intro__word">Ryokan</p>
+    <p class="intro__sub">Tama · Since long ago</p>
+    <p class="intro__kr">신주쿠에서 전차로 마흔 분, 등불이 켜진 골목</p>
+    <button class="intro__enter" id="introEnter"><span>들어가기</span></button>
+    <div class="intro__pulse"></div>
+  </div>
+
+  <!-- stage 2~3: 간살도어 클로즈업 -->
+  <div class="intro__zoom">
+    <div class="igate">
+      <div class="icavity"></div>
+      <img class="ifacade" src="assets/facade-src.png" alt="">
+      <img class="idoor idoor--l" src="assets/door-left.png" alt="">
+      <img class="idoor idoor--r" src="assets/door-right.png" alt="">
+    </div>
+  </div>
+
+  <!-- stage 4: 광채 -->
+  <div class="intro__bloom"></div>
+</div>
+
+<!-- ░░░░░░░░░░ 헤더 ░░░░░░░░░░ -->
+<header class="hd" id="hd">
+  <nav class="hd__nav hd__nav--l">
+    <a href="#top">TOP</a>
+    <a href="#about">료칸안내</a>
+    <a href="#houses">세 료칸</a>
+    <a href="#cuisine">제철 요리</a>
+  </nav>
+  <a class="logo" href="#top">
+    <span class="logo__seal">宿</span>
+    <span class="logo__txt">
+      <span class="logo__word">Ryokan</span>
+      <span class="logo__sub">Tama</span>
+    </span>
+  </a>
+  <nav class="hd__nav hd__nav--r">
+    <a href="#access">오시는 길</a>
+    <a href="#access" class="cta">예약 문의</a>
+  </nav>
+</header>
+
+<main id="top" data-screen-label="Ryokan 메인">
+
+  <!-- ░░░ 히어로 ░░░ -->
+  <section class="hero">
+    <img class="hero__bg" src="assets/entrance.png" alt="료칸 정문">
+    <div class="hero__veil"></div>
+    <div class="hero__inner">
+      <p class="hero__eyebrow">Ryokan · Tama</p>
+      <h1 class="hero__title">타마의 밤,<br>세 채의 등불을 켜다</h1>
+      <p class="hero__sub">도쿄의 서쪽 끝, 시간이 천천히 흐르는 온천 마을.<br>오래된 료칸 세 채가 저마다의 방식으로 당신을 기다립니다.</p>
+    </div>
+    <div class="hero__scroll">Scroll</div>
+  </section>
+
+  <!-- ░░░ 료칸안내 ░░░ -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <p class="eyebrow reveal">About</p>
+      <div class="sec-head reveal"><h2>료칸안내</h2></div>
+      <p class="about__lead about__lead--solo reveal">
+        도쿄 서쪽 끝, <span class="drop">타마(多摩)</span>. 신주쿠에서 전차로 마흔 분이면 닿는 이 작은 온천 마을에는
+        서로 경쟁하는 오래된 료칸 세 채가 저마다 등불을 밝히고 있습니다. 삐걱이는 복도, 나무의 냄새, 온천에서 피어오르는 김 —
+        어느 한 곳도 같지 않은 세 료칸이니, 객실도 온천도 손님을 맞는 종업원도 저마다 다릅니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- ░░░ 세 료칸 ░░░ -->
+  <section class="section section--alt" id="houses">
+    <div class="wrap">
+      <p class="eyebrow reveal">The Three Houses</p>
+      <div class="sec-head reveal"><h2>세 료칸</h2></div>
+      <p class="sec-sub reveal">타마의 자랑인 세 료칸. 한 곳을 골라, 그곳의 객실과 온천, 종업원들을 만나 보세요.</p>
+      <div class="rk-tabs reveal" role="tablist">
+        <button class="rk-tab is-active" data-rk="neko" type="button"><span class="rk-tab__kanji">猫ノ宮</span><span class="rk-tab__name">네코노미야</span><span class="rk-tab__tag">고즈넉한 노포</span></button>
+        <button class="rk-tab" data-rk="haku" type="button"><span class="rk-tab__kanji">白龍亭</span><span class="rk-tab__name">하쿠류테이</span><span class="rk-tab__tag">위엄과 정적</span></button>
+        <button class="rk-tab" data-rk="mushin" type="button"><span class="rk-tab__kanji">夢蜃庵</span><span class="rk-tab__name">무신안</span><span class="rk-tab__tag">정이 머무는 곳</span></button>
+      </div>
+      <div class="rk-panels">
+        <div class="rk-panel is-active" data-rk="neko">
+          <div class="rk-hero">
+            <img class="rk-hero__img" src="assets/houses/neko.png" alt="네코노미야 외경">
+            <div class="rk-hero__cap"><div class="rk-hero__kanji">猫ノ宮</div><div class="rk-hero__name">네코노미야</div><div class="rk-hero__tag">고즈넉한 노포 · 온천 «냥냥탕»</div></div>
+          </div>
+          <p class="rk-intro">낡은 목조와 삐걱이는 복도, 오래된 나무 냄새가 배인 노포. 격식보다 온기로 손님을 맞으며, 경내에 소박한 온천 «냥냥탕»을 두고 있습니다.</p>
+          <div class="rk-sub"><span>객실</span></div>
+          <div class="gallery">
+            <article class="gcard"><div class="gcard__head"><span class="gcard__num">01</span><h3>동관·서관 다다미 객실</h3></div><p>동관과 서관에 자리한 2인실과 4인실. 장지문 너머로 드는 은은한 빛과 다다미 향이 하루의 피로를 가라앉힙니다.</p></article>
+            <article class="gcard"><div class="gcard__head"><span class="gcard__num">02</span><h3>후원 조망 객실</h3></div><p>여러 정자가 놓인 넓은 후원을 곁에 둔 방. 가끔 햇살이 드는 작은 중정의 고요도 함께 누립니다.</p></article>
+          </div>
+          <div class="rk-sub"><span>온천</span></div>
+          <div class="rk-onsen"><div class="rk-onsen__txt"><h3>냥냥탕</h3><p>경내에 병설된 소박하고 정겨운 온천. 남녀 시간대를 나누어 운영하며, 늦은 밤의 김 서린 정적이 특히 좋습니다.</p></div></div>
+          <div class="rk-sub"><span>종업원</span></div>
+          <div class="staff">
+            <article class="scard"><div class="scard__photo"><img class="scard__img" src="assets/staff/neneko.webp" alt="네네코"></div><div class="scard__body"><span class="scard__role">女将 · 료칸 주인</span><div class="scard__name"><b>네네코</b><span>猫々子</span></div><p class="scard__desc">느긋하고 마이페이스. 좀처럼 자리에서 일어나지 않지만, 사람을 보는 눈만은 누구보다 날카롭습니다. 스스로를 «공작가의 당주»라 칭합니다.</p><p class="scard__quote">오늘은 날씨가 좋네. …그러니 일은 내일 하자.</p></div></article>
+            <article class="scard"><div class="scard__photo"><img class="scard__img" src="assets/staff/luna.webp" alt="루나"></div><div class="scard__body"><span class="scard__role">접객 담당</span><div class="scard__name"><b>루나</b><span>るな</span></div><p class="scard__desc">밝고 상냥한 현장의 기둥. 늘 졸린 눈을 하고도, 료칸에서 가장 부지런히 움직입니다.</p><p class="scard__quote">필요하신 거 있으시면 언제든 불러주세요!</p></div></article>
+          </div>
+        </div>
+        <div class="rk-panel" data-rk="haku">
+          <div class="rk-hero">
+            <img class="rk-hero__img" src="assets/houses/haku.png" alt="하쿠류테이 외경">
+            <div class="rk-hero__cap"><div class="rk-hero__kanji">白龍亭</div><div class="rk-hero__name">하쿠류테이</div><div class="rk-hero__tag">위엄과 정적 · 온천 «백룡탕»</div></div>
+          </div>
+          <p class="rk-intro">막말(幕末) 양식의 목조와 잘 손질된 기와지붕, 백룡 문양을 새긴 현판. 격조와 정적이 흐르는 료칸으로, 석조 온천 «백룡탕»을 자랑합니다.</p>
+          <div class="rk-sub"><span>객실</span></div>
+          <div class="gallery">
+            <article class="gcard"><div class="gcard__head"><span class="gcard__num">01</span><h3>다다미 대청</h3></div><p>족자와 도코노마를 갖춘 고급 좌식 대청. 격식 있는 하룻밤을 위한 가장 정갈한 방입니다.</p></article>
+            <article class="gcard"><div class="gcard__head"><span class="gcard__num">02</span><h3>동관 다다미 객실</h3></div><p>잘 손질된 동관의 다다미 객실. 조용하고 단정한 2인실과 4인실을 갖추었습니다.</p></article>
+            <article class="gcard"><div class="gcard__head"><span class="gcard__num">03</span><h3>정원 조망실</h3></div><p>소나무와 연못이 어우러진 후원을 바라보는 객실. 계절의 빛이 창에 머뭅니다.</p></article>
+          </div>
+          <div class="rk-sub"><span>온천</span></div>
+          <div class="rk-onsen"><div class="rk-onsen__txt"><h3>백룡탕</h3><p>격조 있는 석조 탕. 백룡의 전설이 깃든 고요 속에서 몸을 누입니다. 남녀 시간대를 나누어 운영합니다.</p></div></div>
+          <div class="rk-sub"><span>종업원</span></div>
+          <div class="staff">
+            <article class="scard"><div class="scard__photo"><img class="scard__img" src="assets/staff/ryuko.webp" alt="류코"></div><div class="scard__body"><span class="scard__role">료칸 주인</span><div class="scard__name"><b>류코</b><span>龍子</span></div><p class="scard__desc">후원 정자에서 사색에 잠긴 모습으로 자주 발견되는, 조용하고 종잡을 수 없는 주인입니다.</p><p class="scard__quote">…후원 소나무가 올해 유독 잘 자랐네요.</p></div></article>
+            <article class="scard"><div class="scard__photo"><img class="scard__img" src="assets/staff/lin.webp" alt="린"></div><div class="scard__body"><span class="scard__role">지배인</span><div class="scard__name"><b>린</b><span>鱗</span></div><p class="scard__desc">예약·회계·청소까지 료칸의 모든 살림을 홀로 떠받치는 실질적 지배인. 수첩을 늘 손에 쥐고 있습니다.</p><p class="scard__quote">여기 일반 손님 받는 료칸이에요. …몇 번을 말해야 하나요.</p></div></article>
+            <article class="scard"><div class="scard__photo"><img class="scard__img" src="assets/staff/ayame.webp" alt="야아메"></div><div class="scard__body"><span class="scard__role">현관 안내</span><div class="scard__name"><b>야아메</b><span>夜雨</span></div><p class="scard__desc">호쾌하고 당당한 웃음의 소유자. 현관을 지키며 드나드는 손님을 살뜰히 맞이합니다.</p><p class="scard__quote">손님이 없으면 우리가 채우면 되잖아. 하하!</p></div></article>
+          </div>
+        </div>
+        <div class="rk-panel" data-rk="mushin">
+          <div class="rk-hero">
+            <img class="rk-hero__img" src="assets/houses/mushin.png" alt="무신안 외경">
+            <div class="rk-hero__cap"><div class="rk-hero__kanji">夢蜃庵</div><div class="rk-hero__name">무신안</div><div class="rk-hero__tag">정이 머무는 곳 · 후원 노천탕</div></div>
+          </div>
+          <p class="rk-intro">町家풍의 낮은 처마와 낡은 노렌, 흙내음 도는 토방. 손님을 가족처럼 극진히 대접하는 료칸으로, 오래된 괴담 한 자락이 함께 깃들어 있습니다.</p>
+          <div class="rk-sub"><span>객실</span></div>
+          <div class="gallery">
+            <article class="gcard"><div class="gcard__head"><span class="gcard__num">01</span><h3>2층 다다미 객실</h3></div><p>낮은 처마 아래 아늑한 2층 다다미 객실. 낡은 노렌 너머로 흙내음이 은은하게 배어듭니다.</p></article>
+            <article class="gcard"><div class="gcard__head"><span class="gcard__num">02</span><h3>장기투숙 객실</h3></div><p>오래 머무는 손님을 위한 방. 극진한 대접이 하루도 빠짐없이 이어집니다.</p></article>
+          </div>
+          <div class="rk-sub"><span>온천</span></div>
+          <div class="rk-onsen"><div class="rk-onsen__txt"><h3>후원 노천탕</h3><p>후원 한구석에 자리한 노천탕. 늦가을엔 유자 탕, 한겨울엔 설경을 곁들여 계절을 그대로 담아냅니다.</p></div></div>
+          <div class="rk-sub"><span>종업원</span></div>
+          <div class="staff">
+            <article class="scard"><div class="scard__photo"><img class="scard__img" src="assets/staff/keiko.webp" alt="케이코"></div><div class="scard__body"><span class="scard__role">女将</span><div class="scard__name"><b>케이코</b><span>慶子</span></div><p class="scard__desc">손님을 가족처럼 대하는 푸근한 여주인. 밥 한 끼 먹여 보내야 직성이 풀립니다.</p><p class="scard__quote">아이고, 이렇게 말라서야. 밥은 먹고 가야지.</p></div></article>
+            <article class="scard"><div class="scard__photo"><img class="scard__img" src="assets/staff/tsukushimo.webp" alt="츠쿠시모"></div><div class="scard__body"><span class="scard__role">운영 · 관리</span><div class="scard__name"><b>츠쿠시모</b><span>月霜</span></div><p class="scard__desc">장부와 설비를 책임지는 냉정하고 효율적인 살림꾼. «영원한 17세»를 자처합니다.</p><p class="scard__quote">오늘도 적자입니다. …예상 범위 내입니다.</p></div></article>
+            <article class="scard"><div class="scard__photo"><img class="scard__img" src="assets/staff/ahn.webp" alt="안양양"></div><div class="scard__body"><span class="scard__role">접객 · 간판 아가씨</span><div class="scard__name"><b>안양양</b><span>陽陽</span></div><p class="scard__desc">애정이 넘치는 간판 아가씨. 손님 곁에 조금이라도 더 머물고 싶어 합니다.</p><p class="scard__quote">혼자 식사하시면 심심하잖아요. 같이 먹어요!</p></div></article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ 제철 요리 ░░░ -->
+  <section class="section" id="cuisine">
+    <div class="wrap">
+      <p class="eyebrow reveal">Cuisine</p>
+      <div class="sec-head reveal"><h2>제철 요리</h2></div>
+      <p class="sec-sub reveal">계절이 바뀔 때마다, 상에 오르는 것도 달라집니다.</p>
+      <div class="seasons">
+        <article class="season reveal" style="--sc:#c47e98">
+          <div class="season__k">春</div>
+          <div class="season__name">봄</div>
+          <p class="season__line">매화와 벚꽃이 피는 계절. 꽃을 닮은 화과자가 상에 오릅니다.</p>
+          <ul class="season__dishes">
+            <li>벚꽃 화과자</li><li>봄나물 맑은국</li><li>도미 맑은탕</li>
+          </ul>
+        </article>
+        <article class="season reveal" style="--sc:#4f9d8f">
+          <div class="season__k">夏</div>
+          <div class="season__name">여름</div>
+          <p class="season__line">무더위와 불꽃놀이. 정원에 차린 시원한 한 상으로 더위를 식힙니다.</p>
+          <ul class="season__dishes">
+            <li>나가시소멘</li><li>전갱이 절임</li><li>말차 빙수</li>
+          </ul>
+        </article>
+        <article class="season reveal" style="--sc:#c0703a">
+          <div class="season__k">秋</div>
+          <div class="season__name">가을</div>
+          <p class="season__line">단풍이 절정에 이르는 미식의 계절. 향과 결이 깊어집니다.</p>
+          <ul class="season__dishes">
+            <li>송이버섯 솥밥</li><li>꽁치 소금구이</li><li>밤밥</li>
+          </ul>
+        </article>
+        <article class="season reveal" style="--sc:#5b7fa6">
+          <div class="season__k">冬</div>
+          <div class="season__name">겨울</div>
+          <p class="season__line">설경과 새해. 따뜻한 한 그릇이 연말연시의 밤을 채웁니다.</p>
+          <ul class="season__dishes">
+            <li>오세치 요리</li><li>토시코시 소바</li><li>유자 곁들임</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ 오시는 길 ░░░ -->
+  <section class="section" id="access">
+    <div class="wrap">
+      <p class="eyebrow reveal">Access</p>
+      <div class="sec-head reveal"><h2>오시는 길</h2></div>
+      <div class="access access--solo">
+        <div class="reveal">
+          <h3>타마, 신주쿠에서 40 분</h3>
+          <p style="color:var(--ink-soft);margin:0;">전차로 닿는 가장 가까운 다른 세계. 번화함을 등지고 한 정거장씩 멀어질수록, 밤은 점점 깊고 따뜻해집니다.</p>
+          <ul class="access__rows">
+            <li><span class="k">Train</span><span class="v">신주쿠역에서 전차로 약 40분</span></li>
+            <li><span class="k">Area</span><span class="v">도쿄 타마(多摩) 지역</span></li>
+            <li><span class="k">Check-in</span><span class="v">15:00 — / Check-out — 11:00</span></li>
+          </ul>
+          <div class="access__links">
+            <a href="#access">자주 하는 질문</a>
+            <a href="#access">당일치기 플랜</a>
+            <a href="#access">예약 문의</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ░░░░░░░░░░ 푸터 ░░░░░░░░░░ -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft__top">
+      <div class="ft__brand">
+        <a class="logo" href="#top">
+          <span class="logo__seal">宿</span>
+          <span class="logo__txt"><span class="logo__word">Ryokan</span><span class="logo__sub">Tama</span></span>
+        </a>
+        <p>도쿄 서쪽 끝, 타마의 작은 온천 마을. 오래된 료칸 세 채가 등불을 밝히고 당신을 기다립니다.</p>
+      </div>
+      <div class="ft__col">
+        <h4>안내</h4>
+        <ul>
+          <li><a href="#about">료칸안내</a></li>
+          <li><a href="#houses">세 료칸</a></li>
+          <li><a href="#cuisine">제철 요리</a></li>
+        </ul>
+      </div>
+      <div class="ft__col">
+        <h4>방문</h4>
+        <ul>
+          <li><a href="#houses">종업원 안내</a></li>
+          <li><a href="#access">오시는 길</a></li>
+          <li><a href="#access">예약 문의</a></li>
+          <li><a href="#access">자주 하는 질문</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft__bottom">
+      <small>© Ryokan · Tama. All moments reserved.</small>
+      <button class="ft__replay" id="replayIntro">입구 다시 보기</button>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/ryokan.js"></script>
+</body>
+</html>
